@@ -1,4 +1,5 @@
 /*Archivo src/main.ts */
+/* eslint-disable prettier/prettier */
 
 import { VersioningType } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
