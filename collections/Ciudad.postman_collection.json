@@ -1,0 +1,951 @@
+{
+	"info": {
+		"_postman_id": "f0a411c2-c388-4162-aab0-2a34ba7ca023",
+		"name": "Ciudad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22934268"
+	},
+	"item": [
+		{
+			"name": "Crear una ciudad",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"GUID_CIUDAD\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Buenos Aires\",\n    \"pais\": \"Argentina\",\n    \"numeroHabitantes\": 35000000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_BASE}}/cities",
+					"host": [
+						"{{URL_BASE}}"
+					],
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un producto OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"tomate\",\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande, rojo y que da la apariencia de tener un ombligo, muchas personas lo llaman así para diferenciarlo de la variedad de tomate verde (Physalis ixocarpa), que también se conoce como tomatillo o tomate verde, y que es diferente de un tomate rojo no maduro, también de color verde —pertenece a un género de las mismas familia (Solanaceae) y subfamilia (Solanoideae) que el género Solanum, pero no a la misma tribu—. Como curiosidad, la Capital Europea del Tomate es Miajadas, un pueblo cacereño en Extremadura\",\n    \"categoria\": \"vegetales\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": \"12546ccf-96b6-46c0-aacd-6a00fcc3cd26\"\n    \"nombre\": \"tomate\",\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande, rojo y que da la apariencia de tener un ombligo, muchas personas lo llaman así para diferenciarlo de la variedad de tomate verde (Physalis ixocarpa), que también se conoce como tomatillo o tomate verde, y que es diferente de un tomate rojo no maduro, también de color verde —pertenece a un género de las mismas familia (Solanaceae) y subfamilia (Solanoideae) que el género Solanum, pero no a la misma tribu—. Como curiosidad, la Capital Europea del Tomate es Miajadas, un pueblo cacereño en Extremadura\",\n    \"categoria\": \"vegetales\"\n}"
+				},
+				{
+					"name": "Crear un producto existente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"tomate\",\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande, rojo y que da la apariencia de tener un ombligo, muchas personas lo llaman así para diferenciarlo de la variedad de tomate verde (Physalis ixocarpa), que también se conoce como tomatillo o tomate verde, y que es diferente de un tomate rojo no maduro, también de color verde —pertenece a un género de las mismas familia (Solanaceae) y subfamilia (Solanoideae) que el género Solanum, pero no a la misma tribu—. Como curiosidad, la Capital Europea del Tomate es Miajadas, un pueblo cacereño en Extremadura\",\n    \"categoria\": \"vegetales\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 400,\n    \"message\": \"El producto ya existe\"\n}"
+				},
+				{
+					"name": "Crear un producto incompleto",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"tomate\",\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande, rojo y que da la apariencia de tener un ombligo, muchas personas lo llaman así para diferenciarlo de la variedad de tomate verde (Physalis ixocarpa), que también se conoce como tomatillo o tomate verde, y que es diferente de un tomate rojo no maduro, también de color verde —pertenece a un género de las mismas familia (Solanaceae) y subfamilia (Solanoideae) que el género Solanum, pero no a la misma tribu—. Como curiosidad, la Capital Europea del Tomate es Miajadas, un pueblo cacereño en Extremadura\",\n    \"categoria\": \"vegetales\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 400,\n    \"message\": \"Información incompleta\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear una ciudad inválida",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Lima\",\n    \"pais\": \"Perú\",\n    \"numeroHabitantes\": 12000000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_BASE}}/cities",
+					"host": [
+						"{{URL_BASE}}"
+					],
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un producto OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"tomate\",\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande, rojo y que da la apariencia de tener un ombligo, muchas personas lo llaman así para diferenciarlo de la variedad de tomate verde (Physalis ixocarpa), que también se conoce como tomatillo o tomate verde, y que es diferente de un tomate rojo no maduro, también de color verde —pertenece a un género de las mismas familia (Solanaceae) y subfamilia (Solanoideae) que el género Solanum, pero no a la misma tribu—. Como curiosidad, la Capital Europea del Tomate es Miajadas, un pueblo cacereño en Extremadura\",\n    \"categoria\": \"vegetales\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": \"12546ccf-96b6-46c0-aacd-6a00fcc3cd26\"\n    \"nombre\": \"tomate\",\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande, rojo y que da la apariencia de tener un ombligo, muchas personas lo llaman así para diferenciarlo de la variedad de tomate verde (Physalis ixocarpa), que también se conoce como tomatillo o tomate verde, y que es diferente de un tomate rojo no maduro, también de color verde —pertenece a un género de las mismas familia (Solanaceae) y subfamilia (Solanoideae) que el género Solanum, pero no a la misma tribu—. Como curiosidad, la Capital Europea del Tomate es Miajadas, un pueblo cacereño en Extremadura\",\n    \"categoria\": \"vegetales\"\n}"
+				},
+				{
+					"name": "Crear un producto existente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"tomate\",\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande, rojo y que da la apariencia de tener un ombligo, muchas personas lo llaman así para diferenciarlo de la variedad de tomate verde (Physalis ixocarpa), que también se conoce como tomatillo o tomate verde, y que es diferente de un tomate rojo no maduro, también de color verde —pertenece a un género de las mismas familia (Solanaceae) y subfamilia (Solanoideae) que el género Solanum, pero no a la misma tribu—. Como curiosidad, la Capital Europea del Tomate es Miajadas, un pueblo cacereño en Extremadura\",\n    \"categoria\": \"vegetales\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 400,\n    \"message\": \"El producto ya existe\"\n}"
+				},
+				{
+					"name": "Crear un producto incompleto",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"tomate\",\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande, rojo y que da la apariencia de tener un ombligo, muchas personas lo llaman así para diferenciarlo de la variedad de tomate verde (Physalis ixocarpa), que también se conoce como tomatillo o tomate verde, y que es diferente de un tomate rojo no maduro, también de color verde —pertenece a un género de las mismas familia (Solanaceae) y subfamilia (Solanoideae) que el género Solanum, pero no a la misma tribu—. Como curiosidad, la Capital Europea del Tomate es Miajadas, un pueblo cacereño en Extremadura\",\n    \"categoria\": \"vegetales\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 400,\n    \"message\": \"Información incompleta\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todas las ciudades",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of products > ' + 0, function () {",
+							"   var data = pm.response.json()",
+							"   pm.expect(data.length).to.greaterThan(0)",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_BASE}}/cities",
+					"host": [
+						"{{URL_BASE}}"
+					],
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Existen productos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"12546ccf-96b6-46c0-aacd-6a00fcc3cd26\"\n        \"nombre\": \"tomate\",\n        \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n        \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande, rojo y que da la apariencia de tener un ombligo, muchas personas lo llaman así para diferenciarlo de la variedad de tomate verde (Physalis ixocarpa), que también se conoce como tomatillo o tomate verde, y que es diferente de un tomate rojo no maduro, también de color verde —pertenece a un género de las mismas familia (Solanaceae) y subfamilia (Solanoideae) que el género Solanum, pero no a la misma tribu—. Como curiosidad, la Capital Europea del Tomate es Miajadas, un pueblo cacereño en Extremadura\",\n        \"categoria\": \"vegetales\"\n    },\n    {\n        \"id\": \"12546ccf-96b6-46c0-aacd-6a00fcc3cd26\"\n        \"nombre\": \"cúrcuma\",\n        \"descripcion\": \"La cúrcuma es una planta perenne herbácea, que alcanza una altura de hasta un metro. Con rizomas muy ramificados, de color amarillo a naranja, cilíndricos y aromáticos. Las hojas están dispuestas en dos filas. Se dividen en vaina de la hoja, pecíolo y lámina de la hoja.\",\n        \"historia\": \"Las propiedades de la cúrcuma se utilizaron por primera vez en la India entre 610 a. C. y 320 a. C. En aquella época se aplicaba como colorante para la lana. A lo largo de la historia se ha empleado para colorear partes del cuerpo, pero su uso más extendido ha sido el de colorante textil.\",\n        \"categoria\": \"condimentos\"\n    },\n    {\n        \"id\": \"12546ccf-96b6-46c0-aacd-6a00fcc3cd26\"\n        \"nombre\": \"lechuga\",\n        \"descripcion\": \"La lechuga (Lactuca sativa) es una planta anual de la familia Asteraceae. Se cultiva sobre todo como verdura de hoja, pero a veces también por su tallo y sus semillas. La lechuga se utiliza sobre todo para las ensaladas, aunque también se ve en otros tipos de comida, como sopas, emparedados, sándwiches y envoltorios; también se puede asar a la parrilla\",\n        \"historia\": \"La lechuga se cultivó por primera vez en el antiguo Egipto para producir aceite de sus semillas. Los egipcios probablemente la criaron de forma selectiva para convertirla en una planta cultivada por sus hojas comestibles,21​ y las pruebas de su cultivo aparecen ya en el año 2680 a. C.\",\n        \"categoria\": \"hortalizas\"\n    }\n]"
+				},
+				{
+					"name": "No existen productos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Obtener ciudad por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_BASE}}/cities/{{GUID_CIUDAD}}",
+					"host": [
+						"{{URL_BASE}}"
+					],
+					"path": [
+						"cities",
+						"{{GUID_CIUDAD}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener producto existente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos/{{GUID_PRODUCTO}}",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos",
+								"{{GUID_PRODUCTO}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": \"12546ccf-96b6-46c0-aacd-6a00fcc3cd26\"\n    \"nombre\": \"lechuga\",\n    \"descripcion\": \"La lechuga (Lactuca sativa) es una planta anual de la familia Asteraceae. Se cultiva sobre todo como verdura de hoja, pero a veces también por su tallo y sus semillas. La lechuga se utiliza sobre todo para las ensaladas, aunque también se ve en otros tipos de comida, como sopas, emparedados, sándwiches y envoltorios; también se puede asar a la parrilla\",\n    \"historia\": \"La lechuga se cultivó por primera vez en el antiguo Egipto para producir aceite de sus semillas. Los egipcios probablemente la criaron de forma selectiva para convertirla en una planta cultivada por sus hojas comestibles,21​ y las pruebas de su cultivo aparecen ya en el año 2680 a. C.\",\n    \"categoria\": \"hortalizas\"\n}"
+				},
+				{
+					"name": "Obtener producto no existente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos/{{GUID_NO_EXISTE}}",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos",
+								"{{GUID_NO_EXISTE}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Obtener ciudad por ID inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The city with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL_BASE}}/cities/1e447833-4587-4001-bc49-81a9d7ee1145",
+					"host": [
+						"{{URL_BASE}}"
+					],
+					"path": [
+						"cities",
+						"1e447833-4587-4001-bc49-81a9d7ee1145"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener producto existente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos/{{GUID_PRODUCTO}}",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos",
+								"{{GUID_PRODUCTO}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": \"12546ccf-96b6-46c0-aacd-6a00fcc3cd26\"\n    \"nombre\": \"lechuga\",\n    \"descripcion\": \"La lechuga (Lactuca sativa) es una planta anual de la familia Asteraceae. Se cultiva sobre todo como verdura de hoja, pero a veces también por su tallo y sus semillas. La lechuga se utiliza sobre todo para las ensaladas, aunque también se ve en otros tipos de comida, como sopas, emparedados, sándwiches y envoltorios; también se puede asar a la parrilla\",\n    \"historia\": \"La lechuga se cultivó por primera vez en el antiguo Egipto para producir aceite de sus semillas. Los egipcios probablemente la criaron de forma selectiva para convertirla en una planta cultivada por sus hojas comestibles,21​ y las pruebas de su cultivo aparecen ya en el año 2680 a. C.\",\n    \"categoria\": \"hortalizas\"\n}"
+				},
+				{
+					"name": "Obtener producto no existente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos/{{GUID_NO_EXISTE}}",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos",
+								"{{GUID_NO_EXISTE}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Actualizar ciudad",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Buenos Aires\",\n    \"pais\": \"Argentina\",\n    \"numeroHabitantes\": 15000000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_BASE}}/cities/{{GUID_CIUDAD}}",
+					"host": [
+						"{{URL_BASE}}"
+					],
+					"path": [
+						"cities",
+						"{{GUID_CIUDAD}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar producto existente",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande\",\n    \"categoria\": \"vegetales\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos/{{GUID_PRODUCTO}}",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos",
+								"{{GUID_PRODUCTO}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": \"12546ccf-96b6-46c0-aacd-6a00fcc3cd26\"\n    \"nombre\": \"tomate\",\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande\",\n    \"categoria\": \"vegetales\"\n}"
+				},
+				{
+					"name": "Actualizar producto no existente",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande\",\n    \"categoria\": \"vegetales\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos/{{GUID_NO_EXISTE}}",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos",
+								"{{GUID_NO_EXISTE}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Actualizar ciudad con ID inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The city with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Buenos Aires\",\n    \"pais\": \"Argentina\",\n    \"numeroHabitantes\": 12500000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_BASE}}/cities/1e447833-4587-4001-bc49-81a9d7ee1145",
+					"host": [
+						"{{URL_BASE}}"
+					],
+					"path": [
+						"cities",
+						"1e447833-4587-4001-bc49-81a9d7ee1145"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar producto existente",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande\",\n    \"categoria\": \"vegetales\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos/{{GUID_PRODUCTO}}",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos",
+								"{{GUID_PRODUCTO}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": \"12546ccf-96b6-46c0-aacd-6a00fcc3cd26\"\n    \"nombre\": \"tomate\",\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande\",\n    \"categoria\": \"vegetales\"\n}"
+				},
+				{
+					"name": "Actualizar producto no existente",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descripcion\": \"El tomate​ es el fruto de la planta Solanum lycopersicum, el cual tiene importancia culinaria y es una verdura. Siendo el tomate clasificado botánicamente como una fruta, más precisamente como una baya,2​ es comúnmente usado en arte culinario como un ingrediente vegetal o también como guarnición.\",\n    \"historia\": \"El nombre proviene de xitomatl, en la lengua mexica náhuatl. La palabra jitomate3​ procede del náhuatl xictomatl, y este de xictli ‘ombligo’, tomohuac ‘gordura’ y atl ‘agua’; es decir, el significado de jitomate (o xictomatl) sería ‘ombligo de agua gorda’. Debe notarse que, aunque la palabra tomate viene del náhuatl tomatl, en el centro de México el tomate rojo se conoce como jitomate (en todo el norte y sur de México, se conoce como tomate), y aunque el nombre jitomate solamente debe usarse para referirse a una especie de tomate muy grande\",\n    \"categoria\": \"vegetales\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos/{{GUID_NO_EXISTE}}",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos",
+								"{{GUID_NO_EXISTE}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Eliminar ciudad",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL_BASE}}/cities/{{GUID_CIUDAD}}",
+					"host": [
+						"{{URL_BASE}}"
+					],
+					"path": [
+						"cities",
+						"{{GUID_CIUDAD}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar producto existente",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos/{{GUID_PRODUCTO}}",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos",
+								"{{GUID_PRODUCTO}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Eliminar producto no existente",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos/{{GUID_NO_EXISTE}}",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos",
+								"{{GUID_NO_EXISTE}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Eliminar ciudad inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The city with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL_BASE}}/cities/1e447833-4587-4001-bc49-81a9d7ee1145",
+					"host": [
+						"{{URL_BASE}}"
+					],
+					"path": [
+						"cities",
+						"1e447833-4587-4001-bc49-81a9d7ee1145"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar producto existente",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos/{{GUID_PRODUCTO}}",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos",
+								"{{GUID_PRODUCTO}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Eliminar producto no existente",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL_CULTURAS}}/productos/{{GUID_NO_EXISTE}}",
+							"host": [
+								"{{BASE_URL_CULTURAS}}"
+							],
+							"path": [
+								"productos",
+								"{{GUID_NO_EXISTE}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL_BASE",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}
