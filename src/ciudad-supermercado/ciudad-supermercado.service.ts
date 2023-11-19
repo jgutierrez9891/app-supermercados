@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CiudadEntity } from 'src/ciudad/ciudad.entity';
-import { BusinessError, BusinessLogicException } from 'src/shared/errors/business-errors';
-import { SupermercadoEntity } from 'src/supermercado/supermercado.entity';
+import { CiudadEntity } from '../ciudad/ciudad.entity';
+import { BusinessError, BusinessLogicException } from '../shared/errors/business-errors';
+import { SupermercadoEntity } from '../supermercado/supermercado.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()

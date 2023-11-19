@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { SupermercadoEntity } from './supermercado.entity';
 import { Repository } from 'typeorm';
-import { BusinessError, BusinessLogicException } from 'src/shared/errors/business-errors';
+import { BusinessError, BusinessLogicException } from '../shared/errors/business-errors';
 
 @Injectable()
 export class SupermercadoService {
@@ -18,6 +18,8 @@ async findAll(): Promise<SupermercadoEntity[]> {
 
 async findOne(id: string): Promise<SupermercadoEntity> {
     const supermercado: SupermercadoEntity = await this.supermercadoRepository.findOne({where: {id}, relations: ["ciudades"] } );
+    if (!supermercado)
+      throw new BusinessLogicException("The supermarket with the given id was not found", BusinessError.NOT_FOUND);
 
     return supermercado;
 }
@@ -29,10 +31,10 @@ async create(supermercado: SupermercadoEntity): Promise<SupermercadoEntity> {
 }
 
 async update(id: string, supermercado: SupermercadoEntity): Promise<SupermercadoEntity> {
-    const persistedCity: SupermercadoEntity = await this.supermercadoRepository.findOne({where:{id}});
-    if (!persistedCity)
-        throw new BusinessLogicException("The city with the given id was not found", BusinessError.NOT_FOUND);
-    else if(supermercado.nombre.length <= 10)
+    const persistedSupermercado: SupermercadoEntity = await this.supermercadoRepository.findOne({where:{id}});
+    if (!persistedSupermercado)
+        throw new BusinessLogicException("The supermarket with the given id was not found", BusinessError.NOT_FOUND);
+    else if(persistedSupermercado.nombre.length <= 10)
         throw new BusinessLogicException("The supermarket's name doesn't have the required length", BusinessError.PRECONDITION_FAILED);
 
     return await this.supermercadoRepository.save(supermercado);
@@ -41,7 +43,7 @@ async update(id: string, supermercado: SupermercadoEntity): Promise<Supermercado
 async delete(id: string) {
     const supermercado: SupermercadoEntity = await this.supermercadoRepository.findOne({where:{id}});
     if (!supermercado)
-        throw new BusinessLogicException("The city with the given id was not found", BusinessError.NOT_FOUND);
+        throw new BusinessLogicException("The supermarket with the given id was not found", BusinessError.NOT_FOUND);
     
     await this.supermercadoRepository.remove(supermercado);
 }
